@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SAYA GLOBAL ENTERPRISES</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #07111f;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+
+    .navbar {
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(10px);
+      padding: 15px 0;
+    }
+
+    .navbar-brand {
+      color: #fff !important;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .nav-link {
+      color: #fff !important;
+      margin-left: 15px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover {
+      color: #ff9800 !important;
+    }
+
+    /* HERO SECTION */
+
+    .hero {
+      min-height: 100vh;
+
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0.82)),
+        url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000&auto=format&fit=crop');
+
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: rgba(255, 152, 0, 0.15);
+      border-radius: 50%;
+      filter: blur(100px);
+      top: -100px;
+      right: -100px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+
+    .hero h1 {
+      font-size: 75px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: #ff9800;
+    }
+
+    .hero p {
+      color: #ddd;
+      font-size: 19px;
+      line-height: 1.8;
+      margin-bottom: 35px;
+    }
+
+    .btn-main {
+      background: #ff9800;
+      color: #fff;
+      padding: 15px 40px;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+      display: inline-block;
+      box-shadow: 0 10px 25px rgba(255, 152, 0, 0.3);
+    }
+
+    .btn-main:hover {
+      background: #ffb13b;
+      color: #fff;
+      transform: translateY(-5px);
+    }
+
+    /* SECTION */
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #bdbdbd;
+      max-width: 700px;
+      margin: auto;
+      margin-bottom: 60px;
+    }
+
+    /* SERVICE CARDS */
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 25px;
+      padding: 40px 30px;
+      backdrop-filter: blur(10px);
+      transition: 0.4s;
+      height: 100%;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-10px);
+      border-color: #ff9800;
+      box-shadow: 0 10px 30px rgba(255, 152, 0, 0.2);
+    }
+
+    .glass-card i {
+      font-size: 55px;
+      color: #ff9800;
+      margin-bottom: 25px;
+    }
+
+    .glass-card h4 {
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .glass-card p {
+      color: #d8d8d8;
+      line-height: 1.8;
+    }
+
+    /* ABOUT */
+
+    .about-img {
+      overflow: hidden;
+      border-radius: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .about-img img {
+      width: 100%;
+      transition: 0.5s;
+    }
+
+    .about-img img:hover {
+      transform: scale(1.05);
+    }
+
+    .about-content h2 {
+      font-size: 50px;
+      font-weight: 800;
+      margin-bottom: 25px;
+    }
+
+    .about-content p {
+      color: #d5d5d5;
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+
+    /* MARKETPLACE */
+
+    .market-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 25px;
+      padding: 35px 20px;
+      text-align: center;
+      transition: 0.4s;
+      height: 100%;
+      backdrop-filter: blur(10px);
+    }
+
+    .market-card:hover {
+      transform: translateY(-10px);
+      border-color: #ff9800;
+      box-shadow: 0 10px 25px rgba(255, 152, 0, 0.25);
+    }
+
+    .market-card img{
+      height:60px;
+      width:100%;
+      object-fit:contain;
+      filter: drop-shadow(0px 3px 6px rgba(0,0,0,0.4));
+    }
+
+    .market-card h5 {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* STATS */
+
+    .stats {
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.78),
+          rgba(0, 0, 0, 0.78)),
+        url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1800&auto=format&fit=crop');
+
+      background-size: cover;
+      background-position: center;
+    }
+
+    .stat-box {
+      text-align: center;
+    }
+
+    .stat-box h2 {
+      font-size: 60px;
+      color: #ff9800;
+      font-weight: 800;
+    }
+
+    .stat-box p {
+      color: #eee;
+      font-size: 18px;
+    }
+
+    /* CONTACT */
+
+    .contact-box {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 25px;
+      padding: 45px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .contact-box p {
+      margin-bottom: 18px;
+      color: #ddd;
+      font-size: 17px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
+      border-radius: 25px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #040b15;
+      padding: 30px 0;
+      text-align: center;
+      color: #bbb;
+    }
+
+    /* WHATSAPP */
+
+    .whatsapp {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      right: 20px;
+      bottom: 20px;
+      background: #25D366;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      text-decoration: none;
+      z-index: 999;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .whatsapp:hover {
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:992px) {
+
+      .hero {
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 55px;
+      }
+
+      .about-content {
+        margin-top: 40px;
+      }
+    }
+
+    @media(max-width:768px) {
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .section-title {
+        font-size: 34px;
+      }
+
+      .about-content h2 {
+        font-size: 34px;
+      }
+
+      .navbar-brand {
+        font-size: 22px;
+      }
+
+      iframe {
+        height: 300px;
+      }
+
+      .contact-box {
+        padding: 30px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+    <div class="container">
+
+      <a class="navbar-brand" href="#">
+        SAYA GLOBAL ENTERPRISES
+      </a>
+
+      <button class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navMenu">
+
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+
+        <ul class="navbar-nav ms-auto">
+
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#services">Services</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#marketplace">Marketplace</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="container">
+
+      <div class="hero-content">
+
+        <h1>
+          Global <span>Goods Trading</span> Solutions
+        </h1>
+
+        <p>
+          Trusted import-export company delivering professional wholesale trading,
+          logistics support, and global business services worldwide.
+        </p>
+
+        <a href="#contact" class="btn-main">
+          Contact Us
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SERVICES -->
+
+  <section id="services">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Our Services
+      </h2>
+
+      <p class="section-subtitle">
+        Professional goods trading and supply chain management solutions.
+      </p>
+
+      <div class="row g-4">
+
+        <div class="col-lg-4 col-md-6">
+
+          <div class="glass-card">
+
+            <i class="bi bi-house-door"></i>
+
+            <h4>Household Products</h4>
+
+            <p>
+              We supply high-quality household products including daily use items, kitchen essentials,
+              cleaning materials, and home utility goods at wholesale prices.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+
+          <div class="glass-card">
+
+            <i class="bi bi-box-seam"></i>
+
+            <h4>Wholesale Trading</h4>
+
+            <p>
+              Bulk goods supply services for retailers and distributors.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+
+          <div class="glass-card">
+
+            <i class="bi bi-truck"></i>
+
+            <h4>Logistics Support</h4>
+
+            <p>
+              Fast transportation and delivery management with trusted support.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <div class="container">
+
+      <div class="row align-items-center g-5">
+
+        <div class="col-lg-6">
+
+          <div class="about-img">
+
+            <img
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1400&auto=format&fit=crop"
+              alt="About">
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-6">
+
+          <div class="about-content">
+
+            <h2>
+              About Company
+            </h2>
+
+            <p>
+              SAYA GLOBAL ENTERPRISES is a modern goods trading company focused
+              on quality, professionalism, and trusted business relationships.
+            </p>
+
+            <p>
+              We provide import-export services, logistics management,
+              and wholesale supply solutions globally.
+            </p>
+
+            <a href="#contact" class="btn-main">
+              Learn More
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- MARKETPLACE -->
+
+  <section id="marketplace" class="py-5">
+
+  <div class="container">
+
+    <h2 class="section-title">Marketplace Partners</h2>
+
+    <p class="section-subtitle">
+      Trusted online platforms for trading and product sourcing
+    </p>
+
+    <div class="row g-4">
+
+      <!-- AMAZON -->
+      <div class="col-md-3 col-6">
+        <a href="https://www.amazon.in" target="_blank" class="text-decoration-none">
+          <div class="market-card">
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+              alt="Amazon">
+
+            <h5>Amazon</h5>
+
+          </div>
+        </a>
+      </div>
+
+      <!-- FLIPKART -->
+      <div class="col-md-3 col-6">
+        <a href="https://www.flipkart.com" target="_blank" class="text-decoration-none">
+          <div class="market-card">
+
+            <img src="https://static-assets-web.flixcart.com/fk-sp-static/images/flipkart_logo_color_revamp.svg"
+              alt="Flipkart">
+
+            <h5>Flipkart</h5>
+
+          </div>
+        </a>
+      </div>
+
+      <!-- MEESHO -->
+      <div class="col-md-3 col-6">
+        <a href="https://www.meesho.com" target="_blank" class="text-decoration-none">
+          <div class="market-card">
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Meesho_logo.png"
+              alt="Meesho">
+
+            <h5>Meesho</h5>
+
+          </div>
+        </a>
+      </div>
+
+      <!-- INDIA MART -->
+      <div class="col-md-3 col-6">
+        <a href="https://www.indiamart.com" target="_blank" class="text-decoration-none">
+          <div class="market-card">
+
+            <img src="https://en.wikipedia.org/wiki/IndiaMART#/media/File:IndiaMART_logo.svg"
+                      alt="IndiaMART"
+                    style="height:60px; width:auto;">
+
+            <h5>IndiaMART</h5>
+
+          </div>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- STATS -->
+
+  <section class="stats">
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-4 mb-4">
+
+          <div class="stat-box">
+
+            <h2>100+</h2>
+
+            <p>Business Clients</p>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-4 mb-4">
+
+          <div class="stat-box">
+
+            <h2>50+</h2>
+
+            <p>Global Partners</p>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-4 mb-4">
+
+          <div class="stat-box">
+
+            <h2>24/7</h2>
+
+            <p>Customer Support</p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Contact Us
+      </h2>
+
+      <p class="section-subtitle">
+        Connect with us for trading and business solutions.
+      </p>
+
+      <div class="row g-5">
+
+        <div class="col-lg-5">
+
+          <div class="contact-box">
+
+            <p>
+              <i class="bi bi-buildings-fill" style="color:#ff9800; margin-right:10px;"></i>
+              <strong>Company:</strong> SAYA GLOBAL ENTERPRISES
+            </p>
+
+            <p>
+              <i class="bi bi-envelope-fill" style="color:#ff9800; margin-right:10px;"></i>
+              <strong>Email:</strong> finance.sayaglobal@gmail.com
+            </p>
+
+            <p>
+              <i class="bi bi-telephone-fill" style="color:#ff9800; margin-right:10px;"></i>
+              <strong>Phone:</strong> +91 9113782934
+            </p>
+
+            <p>
+              <i class="bi bi-geo-alt-fill" style="color:#ff9800; margin-right:10px;"></i>
+              <strong>Location:</strong> Delhi, India
+            </p>
+
+            <p>
+              We provide trusted goods trading, sourcing, and marketplace services globally.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-7">
+
+          <iframe
+            src="https://www.google.com/maps?q=Delhi&output=embed"
+            allowfullscreen=""
+            loading="lazy">
+          </iframe>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container">
+
+      © 2026 SAYA GLOBAL ENTERPRISES | All Rights Reserved
+
+    </div>
+
+  </footer>
+
+  <!-- WHATSAPP -->
+
+  <a href="https://wa.me/919876543210" class="whatsapp">
+
+    <i class="bi bi-whatsapp"></i>
+
+  </a>
+
+  <!-- Bootstrap JS -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
